@@ -15,7 +15,7 @@
     "scripts": {
         "start": "node index",
         "dev": "nodemon index",
-        "pretest": "eslint --ignore-path .gitignore .",
+        "pretest": "eslint --ignore-path .eslintignore .",
         "test": " nyc --reporter=html --reporter=text mocha --timeout 30000 ./test/**/*.js --exit"
     },
     "devDependencies": {

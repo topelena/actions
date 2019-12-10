@@ -8,6 +8,8 @@
         }
     },
     "rules": {
-        "semi": "error"
-    }
+        "semi": "error",
+        "max-len": [2, 120, 8]
+    },
+    "extends": "strongloop"
 }

@@ -6,7 +6,6 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 
-
 const eventRoutes = require('./routes/events');
 const userRoutes = require('./routes/users');
 
@@ -14,18 +13,16 @@ const app = express();
 const router = express.Router();
 
 
-
 app.use(require('morgan')('dev'));
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 mongoose.set('useCreateIndex', true);
-mongoose.connect('mongodb://localhost:27017/actions',  { useUnifiedTopology: true,  useNewUrlParser: true  });
+mongoose.connect('mongodb://localhost:27017/actions', { useUnifiedTopology: true, useNewUrlParser: true });
 const connection = mongoose.connection;
 connection.once('open', () => {
   console.log('MongoDB database connection established successfully!');
 });
-
 
 
 app.use('/actions/events', eventRoutes);

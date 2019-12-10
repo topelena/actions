@@ -4,7 +4,7 @@ const errorHandler = require('../utils/ErrorHandler');
 const validator = require('validator');
 
 
-module.exports.create = async function (req, res) {
+module.exports.create = async function(req, res) {
 
   try {
     // create greenwich start and end date
@@ -15,7 +15,7 @@ module.exports.create = async function (req, res) {
       { start: start, end: end, 'location.latLng.lat': req.body.lat, 'location.latLng.lng': req.body.lng });
     if (existingEvent) {
       throw new AppError('An Event already exist at this venue on this day ', 400);
-      //create event 
+      // create event
     } else {
       const event = await new Event(
         {
@@ -29,9 +29,9 @@ module.exports.create = async function (req, res) {
             latLng: {
               lat: req.body.lat,
               lng: req.body.lng,
-            }
-          }
-        }
+            },
+          },
+        },
       );
 
       await event.save();
@@ -43,8 +43,7 @@ module.exports.create = async function (req, res) {
 };
 
 
-
-module.exports.getAllEvents = async function (req, res) {
+module.exports.getAllEvents = async function(req, res) {
   try {
     const events = await Event.find()
       .limit(4);
@@ -54,7 +53,7 @@ module.exports.getAllEvents = async function (req, res) {
   }
 };
 
-module.exports.getAllUserEvents = async function (req, res) {
+module.exports.getAllUserEvents = async function(req, res) {
   try {
     const events = await Event.find({ user: req.params.id })
       .limit(4);
@@ -65,12 +64,11 @@ module.exports.getAllUserEvents = async function (req, res) {
 };
 
 
-
 const getStartandEndDates = (startString, endString) => {
-  //validate
+  // validate
   validate(startString, endString);
 
-  //start date to greenwich
+  // start date to greenwich
   const localstart = new Date(startString);
   const localstartToUTC = localstart.toUTCString();
   const start = new Date(localstartToUTC);
@@ -81,12 +79,12 @@ const getStartandEndDates = (startString, endString) => {
 
   return {
     startUTCDate: start,
-    endUTCDate: end
+    endUTCDate: end,
   };
 };
 
 const validate = (startString, endString) => {
   if (validator.isEmpty(startString) || validator.isEmpty(endString)) {
-    throw new AppError("Validation Failed", 404);
+    throw new AppError('Validation Failed', 404);
   }
 };
