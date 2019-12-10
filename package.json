@@ -15,7 +15,7 @@
     "scripts": {
         "start": "node index",
         "dev": "nodemon index",
-        "test": " nyc --reporter=text mocha --timeout 30000 ./test/**/*.js --exit"
+        "test": " nyc --reporter=html --reporter=text mocha --timeout 30000 ./test/**/*.js --exit"
     },
     "devDependencies": {
         "chai": "^4.2.0",

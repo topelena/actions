@@ -54,7 +54,7 @@ describe('/POST event', () => {
             address: "test222",
             lat: 361,
             lng: 68,
-            start: "December 09, 2019 09:01:00",
+            start: "December 09, 2019 11:01:00",
             end: "December 10, 2019 10:46:00"
         }
         chai.request(server)
@@ -81,7 +81,7 @@ describe('/POST event', () => {
             address: "test222",
             lat: 361,
             lng: 68,
-            start: "December 09, 2019 09:01:00",
+            start: "December 09, 2019 11:01:00",
             end: "December 10, 2019 10:46:00"
         }
         chai.request(server)
