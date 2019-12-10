@@ -1,7 +1,6 @@
 let mongoose = require("mongoose");
 let User = require('../models/Users');
 
-//Подключаем dev-dependencies
 let chai = require('chai');
 let chaiHttp = require('chai-http');
 let server = require('../index');
@@ -33,7 +32,7 @@ describe('Users', () => {
         let user = {
             name: "Olena",
             email: "test16@test.com"
-        }
+        };
         User.remove(user, (err) => {
             done();
         });
@@ -44,7 +43,7 @@ describe('Users', () => {
             let user = {
                 name: "Olena",
                 email: "test16@test.com"
-            }
+            };
             chai.request(server)
                 .post('/actions/users')
                 .send(user)
@@ -65,7 +64,7 @@ describe('/POST user', () => {
         let user = {
             name: "Olena",
             email: "test16@test.com"
-        }
+        };
         chai.request(server)
             .post('/actions/users')
             .send(user)
@@ -84,7 +83,7 @@ describe('/POST user', () => {
         let user = {
             name: "",
             email: "olenatest.com"
-        }
+        };
         chai.request(server)
             .post('/actions/users')
             .send(user)
@@ -98,7 +97,7 @@ describe('/POST user', () => {
 
 describe('/POST user', () => {
     it('should not create a user if name or email is empty or  value is not email', (done) => {
-        let user = {}
+        let user = {};
         chai.request(server)
             .post('/actions/users')
             .send(user)

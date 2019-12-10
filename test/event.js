@@ -28,23 +28,6 @@ describe('/GET events', () => {
 /*
   * Test for /Post 
   */
-//describe('Events', () => {
-// beforeEach((done) => { //Delete event before any test
-//     let event =  {
-//         user:"5dee65d5760bd461d15b389e",
-//         title:"test222",
-//         details:"test222",
-//         address:"test222",
-//         lat:361,
-//          lng:68,
-//          start: "December 09, 2019 01:01:00",
-//          end: "December 10, 2019 10:46:00"
-//     }
-//     Event.remove(event, (err) => {
-//         done();
-//     });
-// });
-
 describe('/POST event', () => {
     it('it should POST an event', (done) => {
         let event = {
@@ -54,9 +37,9 @@ describe('/POST event', () => {
             address: "test222",
             lat: 361,
             lng: 68,
-            start: "December 09, 2019 11:01:00",
+            start: "December 09, 2019 12:01:00",
             end: "December 10, 2019 10:46:00"
-        }
+        };
         chai.request(server)
             .post('/actions/events')
             .send(event)
@@ -70,7 +53,7 @@ describe('/POST event', () => {
 
 
 });
-//});
+
 
 describe('/POST event', () => {
     it('it should not  save  the same event', (done) => {
@@ -81,9 +64,9 @@ describe('/POST event', () => {
             address: "test222",
             lat: 361,
             lng: 68,
-            start: "December 09, 2019 11:01:00",
+            start: "December 09, 2019 12:01:00",
             end: "December 10, 2019 10:46:00"
-        }
+        };
         chai.request(server)
             .post('/actions/events')
             .send(event)
@@ -105,10 +88,10 @@ describe('/POST event', () => {
             details: "test222",
             address: "test222",
             lat: 361,
-            lng: 68, 
-            start: "" ,
-            date: ":9"          
-        }
+            lng: 68,
+            start: "",
+            date: ":9"
+        };
         chai.request(server)
             .post('/actions/events')
             .send(event)
@@ -119,8 +102,3 @@ describe('/POST event', () => {
     });
 
 });
-
-
-
-
-
