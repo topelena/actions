@@ -19,8 +19,7 @@ describe('/GET events', () => {
       .end((err, res) => {
         if (err) done(err);
         res.should.have.status(200);
-        res.body.should.be.a('array');
-        res.body.length.should.be.eql(4);
+        res.body.should.be.a('array');       
         done();
       });
   });

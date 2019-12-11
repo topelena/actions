@@ -1,5 +1,6 @@
 
 const express = require('express');
+require('dotenv').config()
 
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -18,7 +19,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 mongoose.set('useCreateIndex', true);
-mongoose.connect('mongodb://localhost:27017/actions', { useUnifiedTopology: true, useNewUrlParser: true });
+mongoose.connect(`mongodb:${process.env.DB_HOST}`, { useUnifiedTopology: true, useNewUrlParser: true });
 const connection = mongoose.connection;
 connection.once('open', () => {
   console.log('MongoDB database connection established successfully!');
