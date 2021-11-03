@@ -10,7 +10,7 @@
         "express": "^4.16.4",
         "mongoose": "^5.5.8",
         "morgan": "^1.9.1",
-        "validator": "^12.1.0"
+        "validator": "^13.7.0"
     },
     "scripts": {
         "start": "node index",
